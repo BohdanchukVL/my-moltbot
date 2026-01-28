@@ -9,9 +9,7 @@ services:
       - HOME=/home/node
       - NODE_ENV=production
       - TERM=xterm-256color
-      - MOLTBOT_GATEWAY_BIND=${MOLTBOT_GATEWAY_BIND}
-      - MOLTBOT_GATEWAY_PORT=${MOLTBOT_GATEWAY_PORT}
-      - MOLTBOT_GATEWAY_TOKEN=${MOLTBOT_GATEWAY_TOKEN}
+      - CLAWDBOT_GATEWAY_TOKEN=${MOLTBOT_GATEWAY_TOKEN}
       - GOG_KEYRING_PASSWORD=${GOG_KEYRING_PASSWORD}
       - PATH=/home/linuxbrew/.linuxbrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
     volumes:
@@ -28,5 +26,7 @@ services:
         "${MOLTBOT_GATEWAY_BIND}",
         "--port",
         "${MOLTBOT_GATEWAY_PORT}",
+        "--token",
+        "${MOLTBOT_GATEWAY_TOKEN}",
         "--allow-unconfigured"
       ]
