@@ -9,9 +9,7 @@ services:
       - HOME=/home/node
       - NODE_ENV=production
       - TERM=xterm-256color
-      - CLAWDBOT_GATEWAY_TOKEN=${MOLTBOT_GATEWAY_TOKEN}
-      - GOG_KEYRING_PASSWORD=${GOG_KEYRING_PASSWORD}
-      - PATH=/home/linuxbrew/.linuxbrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
     volumes:
       - ${MOLTBOT_CONFIG_DIR}:/home/node/.moltbot
       - ${MOLTBOT_WORKSPACE_DIR}:/home/node/clawd
@@ -23,10 +21,7 @@ services:
         "dist/index.js",
         "gateway",
         "--bind",
-        "${MOLTBOT_GATEWAY_BIND}",
+        "lan",
         "--port",
-        "${MOLTBOT_GATEWAY_PORT}",
-        "--token",
-        "${MOLTBOT_GATEWAY_TOKEN}",
-        "--allow-unconfigured"
+        "18789"
       ]
