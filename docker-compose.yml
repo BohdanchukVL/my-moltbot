@@ -16,7 +16,7 @@ services:
       - XDG_CONFIG_HOME=${XDG_CONFIG_HOME}
       - PATH=/home/linuxbrew/.linuxbrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
     volumes:
-      - ${CLAWDBOT_CONFIG_DIR}:/home/node/.clawdbot
+      - ${CLAWDBOT_CONFIG_DIR}:/home/node/.moltbot
       - ${CLAWDBOT_WORKSPACE_DIR}:/home/node/clawd
     ports:
       - "127.0.0.1:${CLAWDBOT_GATEWAY_PORT}:18789"
@@ -28,5 +28,6 @@ services:
         "--bind",
         "${CLAWDBOT_GATEWAY_BIND}",
         "--port",
-        "${CLAWDBOT_GATEWAY_PORT}"
+        "${CLAWDBOT_GATEWAY_PORT}",
+        "--allow-unconfigured"
       ]
